@@ -62,8 +62,8 @@ const questions = [
     }
 ];
 
-const asciiText = figlet.textSync("WAFKEY", {
-    font: 'Graffiti',
+const asciiText = figlet.textSync("Zexxy", {
+    font: 'Ansi Shadow',
     horizontalLayout: 'default',
     verticalLayout: 'default',
     width: 75,
