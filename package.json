@@ -1,8 +1,8 @@
 {
   "name": "Zexxy/Ganteng",
   "version": "1.0.0",
-  "description": "Stumble-Guys - i-scrapper",
-  "main": "stumble.js",
+  "description": "Stumble-Guys - Cheat",
+  "main": "Zexxy.js",
   "scripts": {
     "test": "node .",
     "start": "node ."
