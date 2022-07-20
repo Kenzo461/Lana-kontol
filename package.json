@@ -1,5 +1,5 @@
 {
-  "name": "@i-scrapper/stumble-guys",
+  "name": "Zexxy/Ganteng",
   "version": "1.0.0",
   "description": "Stumble-Guys - i-scrapper",
   "main": "stumble.js",
@@ -9,18 +9,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/i-scrapper/stumble-guys.git"
+    "url": "git+https://github.com/Kenzo461/Zexxy-4"
   },
   "keywords": [
-    "stumble-guys",
-    "i-scrapper"
+    "Cheat",
+    "Kenzo461"
   ],
-  "author": "i-scrapper",
+  "author": "Zexxy",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/i-scrapper/stumble-guys/issues"
+    "url": "https://github.com/Kenzo461/Zexxy-4/issues"
   },
-  "homepage": "https://github.com/i-scrapper/stumble-guys#readme",
+  "homepage": "https://github.com/Kenzo461/Zexxy-4#readme",
   "dependencies": {
     "@i-scrapper/plugins-request": "^1.0.0",
     "chalk": "^4.1.2",
