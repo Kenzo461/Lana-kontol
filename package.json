@@ -2,7 +2,7 @@
   "name": "Zexxy/Ganteng",
   "version": "1.0.0",
   "description": "Stumble-Guys - Cheat",
-  "main": "Zexxy.js",
+  "main": "index.js",
   "scripts": {
     "test": "node .",
     "start": "node ."
