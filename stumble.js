@@ -1,19 +1,18 @@
 const chalk = require("chalk");
 const figlet = require("figlet");
 const inquirer = require("inquirer");
-const request = require("@i-scrapper/plugins-request");
 
 const questions = [
     {
         type: "input",
         name: "authorization",
-        message: color("Authorization keys:"),
-        prefix: `${color("[", "redBright")}+${color("]", "redBright")}`,
-        suffix: "~",
+        message: color("key Auth ="),
+        prefix: `${color("-", "blueBright")}`,
+        suffix: "",
         validate: function (input) {
             const done = this.async();
             if (!input) {
-                done('You need to provide Authorization keys');
+                done('${color(">>", "redBright")}', 'Kamu Perlu Memberikan keys Auth Sebagai  Object');
                 return false;
             }
             let authParse;
@@ -22,8 +21,8 @@ const questions = [
             } catch (error) {
                 authParse = error.message;
             }
-            if (typeof authParse != "object") {
-                done("You need to provide Authorization keys as Object");
+            if (typeof authParse != 'object') {
+                done('Kamu Perlu Memberikan keys Auth Sebagai Object');
                 return false;
             }
             return done(null, true);
@@ -32,44 +31,35 @@ const questions = [
     {
         type: "list",
         name: "round",
-        message: color("Authorization keys taken at 'Round':"),
-        prefix: `${color("[", "redBright")}+${color("]", "redBright")}`,
-        suffix: "~",
+        message: color("Enter Keys Auth 'Round' ="),
+        prefix: `${color("-", "blueBright")}`,
+        suffix: "",
         choices: ["Stage 1", "Stage 2", "Stage 3"],
         filter: (value) => {
             return {
                 "Stage 1": 1,
                 "Stage 2": 2,
-                "Stage 3": 3,
+                "Round 3 Kalah": 3,
+                "Round 3 winner"
             }[value];
         },
     },
     {
         type: "input",
         name: "interval",
-        message: color("Interval Delay:"),
-        prefix: `${color("[", "redBright")}+${color("]", "redBright")}`,
-        suffix: "~",
-        default: 1000,
+        message: color("Interval Delay ="),
+        prefix:`${color("-", "blueBright")}`,
+        suffix: "",
         validate: function (input) {
             const done = this.async();
             if (input && isNaN(input)) {
-                done('You need to provide a number');
+                done('${color(">>", "redBright")} Kamu Harus Memasukkan Delay');
                 return false;
             }
             return done(null, true);
         },
     }
 ];
-
-const asciiText = figlet.textSync("Zexxy", {
-    font: 'Ansi Shadow',
-    horizontalLayout: 'default',
-    verticalLayout: 'default',
-    width: 75,
-    whitespaceBreak: true
-});
-console.log(color(asciiText, "redBright"));
 
 inquirer.prompt(questions)
     .then(async ({ authorization, round, interval }) => {
@@ -86,7 +76,7 @@ function iStumble(interval, round, authorization) {
             } else if (typeof data == "object") {
                 const date = new Date();
                 let { Id, Username, Country, Region, Crowns, SkillRating } = data.User;
-                const print = `[${color(date.getHours())}:${date.getMinutes()}] ` + [color(Id, "cyanBright"), color(Username), color(Country, "white"), color(Region, "blueBright"), color(Crowns, "cyanBright"), color(SkillRating, "greenBright")].join(" | ");
+                const print = `[${color(date.getHours())}:${date.getMinutes()}] ` + [color(Id, "blueBright"), color(Username, "magenta"), color(Country, "blueBright"), color(Region, "blueBright"), color(Crowns, "redBright"), color(SkillRating, "yellowBright")].join(" | ");
                 console.log(print);
             }
         } catch (error) {}
@@ -94,7 +84,7 @@ function iStumble(interval, round, authorization) {
 }
 
 function color(text, color) {
-    return color ? chalk[color].bold(text) : chalk.blue.bold(text);
+    return color ? chalk[color].bold(text) : chalk.white.bold(text);
 }
 
 function stageRequest(authorization, round) {
