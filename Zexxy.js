@@ -39,7 +39,7 @@ const questions = [
             return {
                 "Stage 1": 1,
                 "Stage 2": 2,
-                "Round 3": 3,
+                "Stage 3": 3,
             }[value];
         },
     },
